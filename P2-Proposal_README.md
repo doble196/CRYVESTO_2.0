@@ -2,8 +2,8 @@
 
 ---
 
+## Team CRYVESTO_2.0
 ## Project 2 Proposal
-### For Team CRYVESTO_2.0
 
 ---
 
