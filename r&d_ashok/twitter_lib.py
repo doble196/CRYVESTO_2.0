@@ -33,14 +33,14 @@ def get_crypto_sentiment_from_twitter(coin, num_of_periods, start, end, bin_size
     
     df_sentiments = counts_df[['FOMO', 'Uncertain','Hopeful','Bearish', 'Pessimistic/Doubtful', 'Sad', 'Fearful/Concerned', 'Angry', 'Mistrustful', 'Panicking', 'Annoyed/Frustrated', 'Bullish', 'Optimistic', 'Happy', 'Euphoric/Excited']] 
 
-    bearish=df_sentiments[[ 'Bearish', 'Pessimistic/Doubtful', 'Sad', 'Fearful/Concerned', 'Angry', 'Mistrustful', 'Panicking', 'Annoyed/Frustrated']]
-    bullish=df_sentiments[[ 'Hopeful','Bullish', 'Optimistic', 'Happy', 'Euphoric/Excited']]
+ #   bearish=df_sentiments[[ 'Bearish', 'Pessimistic/Doubtful', 'Sad', 'Fearful/Concerned', 'Angry', 'Mistrustful', 'Panicking', 'Annoyed/Frustrated']]
+ #   bullish=df_sentiments[[ 'Hopeful','Bullish', 'Optimistic', 'Happy', 'Euphoric/Excited']]
 
-    bearish['Bear_sum'] = bearish.sum(axis=1)
-    bullish['Bull_sum']=bullish.sum(axis=1)
+ #   bearish['Bear_sum'] = bearish.sum(axis=1)
+ #   bullish['Bull_sum']=bullish.sum(axis=1)
 
-    return bearish, bullish
-
+   # return bearish, bullish
+    return df_sentiments
 
 
 
