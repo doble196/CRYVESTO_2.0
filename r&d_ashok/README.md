@@ -1,5 +1,4 @@
 # Project 2 - Cryvesto, Version 2
-
 Utilize ML techniques to build a Crypto stock trading bot. 
 
 ---
