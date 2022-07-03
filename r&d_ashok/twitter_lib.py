@@ -24,6 +24,7 @@ def get_crypto_sentiment_from_twitter(coin, num_of_periods, start, end, bin_size
     topics_json = r.json()
     #print('Topics are ', json.dumps(topics_json, indent=4, skipkeys = True, allow_nan = True))
     topic_list = list(topics_json.values())
+    #source = 'twitter'
 
     data=ld.load_data_from_augmento(coin, num_of_periods, start, end, bin_size)
     df = pd.DataFrame(data)
