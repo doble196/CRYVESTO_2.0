@@ -47,18 +47,25 @@ def model_fit_predict(model, X_train, y_train, X_test):
     return pred
 
 # Create a new empty predictions DataFrame.
-def get_Strategy_and_Actual_returns(index_of_df, svm_pred, signals_test_df):       
+def get_Strategy_and_Actual_returns(index_of_test_df, y_pred, signals_test_df):
     # Create a predictions DataFrame
-    predictions_df = pd.DataFrame(index=index_of_df)# YOUR CODE HERE
+    predictions_df = pd.DataFrame()# YOUR CODE HERE
 
-    # Add the SVM model predictions to the DataFrame
-    predictions_df['Predicted'] = svm_pred 
+    # Add the model predictions to the DataFrame
+    predictions_df['Predicted'] = y_pred
+    predictions_df.index=index_of_test_df
+    
 
     # Add the actual returns to the DataFrame
-    predictions_df['Actual Returns'] = signals_test_df['Actual Returns'] # YOUR CODE HERE
+    predictions_df['Actual Returns'] = signals_test_df['daily_ret']
+    #predictions_df['Actual Returns'] = x['daily_ret']
+    predictions_df.dropna()
 
     # Add the strategy returns to the DataFrame
+
     predictions_df['Strategy Returns'] = predictions_df['Actual Returns'] * predictions_df['Predicted']
 
+
     # Plot the actual returns versus the strategy returns
+    #return (1+predictions_df[['Strategy Returns', 'Actual Returns']]).cumprod()
     return (1+predictions_df[['Strategy Returns', 'Actual Returns']]).cumprod()
