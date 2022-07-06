@@ -60,14 +60,19 @@ if email == "admin":
         
         #### Ashok Add import your function here.  We can add visuals. 
         
-        reddit_class_report = pd.read_csv(Path("../Project_2/reddit_classification_reports.csv"))
-        
-        st.dataframe(reddit_class_report)
-        image = Image.open('../Project_2/reddit_eth_adaboost.png')
-        image_2 = Image.open('../Project_2/reddit_btc_adaboost.png')
+        import plotly.graph_objects as go
 
-        st.image(image,caption='Best ML Model for Ethereum')
-        st.image(image_2, caption='Best ML Model for Bitcoin')
+        fig = go.Figure(go.Indicator(
+            domain = {'x': [0, 1], 'y': [0, 1]},
+            mode = "gauge+number",
+            value = .2,
+            gauge = {'axis': {'range': [-1, 1 ]}}, 
+            title = {'text': "Current Sentiment"} ))
+                     
+                 
+
+        st.plotly_chart(fig, use_container_width=True,caption='Sentiment gauge')
+    
         
         st.text('Based on our sentiment analysis, the current sentiment is ____')
         st.text("Based on this data, Cryvesto's recommendation is to (buy/hold/sell).")
