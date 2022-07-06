@@ -1,71 +1,10 @@
 # Project_2 Streamlit Application
 #### Issues Im having. Session state is storing the values in the keys.  However, when I buy or sell it subtracts or adds from the original crypto holdings amount.  Try to buy 5 crypto, then sell the same 5 crypto and view the results.  You will see what Im troubleshooting.  Anyways we can add visuals for your data, an interactive dataframe that Lucas Manning shared.  
 
-from turtle import onclick
 import streamlit as st
 import time
 import yfinance as yf
 #import AshokData
-
-import pandas as pd
-import os
-#from dotenv import load_dotenv
-import alpaca_trade_api as tradeapi
-
-# our private library alpaca_trade_lib.py which does the trading using alpaca. 
-
-import alpaca_trade_lib as ta
-
-def trade_crypto(coin, amount, buy_sell):
-# comment these after uncommenting loadenv 
-    alpaca_secret_key='QrWTvuqjdWDgx7Klqe5iWIR8K5iESy6DFugfV4Xy'
-    alpaca_api_key='PKSYV8TUR5L9XAGR5AHC'
-
-## THE KEYS HAVE TO BE RETRIEVED via LOAD_DOTENV. 
-# Uncomment the load_dotenv line and the key setting lines below 
-# after commenting the key lines above
-
-#    load_dotenv('my_api.env')
-# Set the variables for the Alpaca API and secret keys
-#    alpaca_api_key = os.getenv('ALPACA_API_KEY')
-#    alpaca_secret_key = os.getenv('ALPACA_SECRET_KEY')
-
-#get the alpaca tradeapi object
-    api = ta.get_alpaca_tradeapi_object(alpaca_api_key, alpaca_secret_key)
-
-# buy coin(s)
-
-    if coin == 'BTC': crypto='BTCUSD'
-    if coin == 'ETH': crypto='ETHUSD'
-
-    number_of_shares = amount
-    buy_or_sell = buy_sell.lower()
-    st.write('NUM OF SHARES '+ str(number_of_shares))
-    st.write('BUY_SELL '+buy_sell)
-
-    st.write("CRYPTO is "+ crypto)
-
-#do a trade
-    try:
-        order_result = ta.submit_crypto_order(api, crypto, buy_or_sell, number_of_shares)
-    except Exception as exception:
-       st.write (exception)
- 
-  #if exception.__str__() == 'position does not exist':
-   # pos_qty = 0
-
-#see what trade price we got
-#print (order_result.client_order_id)
-    price = ta.get_my_order_filled_price (api, order_result.client_order_id)
- #  print (f"Purchase price for {number_of_shares} share(s) was USD {price} per share")
-    
-# Weird but this is how we are returning the value of this function. Thru state variable..
-    st.session_state.order_filled_price = price  
-
-    return
-
-
-
 
 
 st.sidebar.header("Options")
@@ -126,7 +65,6 @@ if email == "admin":
         buy_sell = st.radio('Please make a selection for todays trading.',('Buy','Sell'))              
         st.write("How much",cryptos," do you want to trade ?")
         amount = st.number_input("Amount",.0)
-        st.write('NUM OF SHARES INPUT '+ str(amount))
 
         # Check if you have sufficient AMOUNT REQUIRED if WANT TO BUY
         # Check if you have ENOUGH shares, if you want to sell 
@@ -174,21 +112,15 @@ if email == "admin":
         
             st.write("Your trade in the amount of",total, "has been processed.")                        
             st.session_state.btc_holdings = btc_holdings
-            st.session_state.eth_holdings = eth_holdings  
-
+            st.session_state.eth_holdings = eth_holdings               
+                        
         submitted = st.form_submit_button("Submit")
         if submitted:
-            trade_crypto (cryptos, amount, buy_sell)
-            order_filled_price = float(st.session_state.order_filled_price )
-            if cryptos == 'BTC' : btc_price = order_filled_price
-            if cryptos == 'ETH' : eth_price = order_filled_price
-            
             eth_holdings_value = eth_holdings * eth_price
             btc_holdings_value = btc_holdings * btc_price
             account_balance = btc_holdings_value + eth_holdings_value + cash_available
 
             st.write("AFTER THE TRADE:")
-
             st.write(f"ETH Holdings: {eth_holdings}  Value: USD {eth_holdings_value:,.2f}") 
             st.write(f"BTC Holdings: {btc_holdings}  Value: USD {btc_holdings_value:,.2f}") 
             st.write("Cash available for trading:", cash_available)

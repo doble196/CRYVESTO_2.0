@@ -6,8 +6,6 @@ st.title('Welcome to BMI Calculator')
 
 # TAKE WEIGHT INPUT in kgs
 weight = st.number_input("Enter your weight (in kgs)")
-if weight > 100:
-    st.text('r u ceazy')
 
 # TAKE HEIGHT INPUT
 # radio button to choose height format
