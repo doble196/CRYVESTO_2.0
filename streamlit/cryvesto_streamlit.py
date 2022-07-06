@@ -69,8 +69,8 @@ if email == "admin":
         st.image(image,caption='Best ML Model for Ethereum')
         st.image(image_2, caption='Best ML Model for Bitcoin')
         
-        st.text('Based on our sentiment analysis and machine')
-        st.text('learning model for Bitcoin and Ethereum our recommendation is to (buy/hold/sell).')
+        st.text('Based on our sentiment analysis, the current sentiment is ____')
+        st.text("Based on this data, Cryvesto's recommendation is to (buy/hold/sell).")
         
 
         cryptos = st.radio("What crypto do you want to trade today?", ("BTC", "ETH"))
