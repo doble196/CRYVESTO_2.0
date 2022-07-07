@@ -114,14 +114,6 @@ if email == "admin":
         st.write("Cash available for trading:", cash_available)
 
         st.write("Portfolio Total:", account_balance)
-
-        cryptos = st.radio("What crypto do you want to trade today?", ("BTC", "ETH"))
-        if cryptos == "BTC":
-            market_price = btc_price
-        if cryptos == "ETH":
-            market_price = eth_price  
-
-        #### Ashok Add import your function here.  We can add visuals. 
         
         import plotly.graph_objects as go
         
@@ -142,7 +134,17 @@ if email == "admin":
         st.plotly_chart(fig,caption='Sentiment gauge')
     
         
-        st.text('Based on our sentiment analysis, the current sentiment is ____')
+        st.text('Based on our machine learning, the current sentiment is ____')
+
+        cryptos = st.radio("What crypto do you want to trade today?", ("BTC", "ETH"))
+        if cryptos == "BTC":
+            market_price = btc_price
+        if cryptos == "ETH":
+            market_price = eth_price  
+
+        #### Ashok Add import your function here.  We can add visuals. 
+        
+       
 
         buy_sell = st.radio('Please make a selection for todays trading.',('Buy','Sell'))              
         st.write("How much",cryptos," do you want to trade ?")
