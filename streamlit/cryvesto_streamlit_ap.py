@@ -118,23 +118,24 @@ if email == "admin":
         import plotly.graph_objects as go
         
         fig = go.Figure(go.Indicator(
-            domain = {'x': [0, .75], 'y': [0, .75]},
+            domain = {'x': [0, 1], 'y': [0, 1]},
             mode = 'gauge+number',
-            value = 228,
+            value = .289,
             gauge = {
-                'axis': {'range': [100, 1200], 
+                'axis': {'range': [-1, 1], 
                 'tickcolor':'blueviolet'},
-                'bar': {'color': 'blue'}}, 
-            title = {'text': 'Current Sentiment'}))
+                'bar': {'color': 'blue'}},
+            title = {'text': 'Sentiment of the Day'}))
+        
         fig.update_layout(
-            autosize=False,width=400,height=400 )
+            autosize=False,width=500,height=500)
                      
                  
 
-        st.plotly_chart(fig,caption='Sentiment gauge')
+        st.plotly_chart(fig)
     
         
-        st.text('Based on our machine learning, the current sentiment is ____')
+        st.text('Based on our machine learning, the current sentiment is *Slightly Bearish*.')
 
         cryptos = st.radio("What crypto do you want to trade today?", ("BTC", "ETH"))
         if cryptos == "BTC":
