@@ -93,12 +93,12 @@ def load_from_alpaca(tickers, start_date, end_date):
 # num_of_periods - example: 1 if one period of 24H, 10 if 10 days etc..
 
 
-def load_data_from_augmento(coin, num_of_periods, start, end, bin_size='24H'):
+def load_data_from_augmento(source, coin, num_of_periods, start, end, bin_size='24H'):
 
     url = "http://api-dev.augmento.ai/v0.1/events/aggregated"
 
     params = {
-      "source" : "twitter",
+      "source" : source,
       "coin" : coin,
       "bin_size" : bin_size,
       "count_ptr" : num_of_periods,
