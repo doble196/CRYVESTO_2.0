@@ -180,9 +180,9 @@ After step 7 above, this will take you to the jupyter lab window, where you can 
 ## Contributors
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
 Dane Hayes - nydane1@gmail.com  
-Scott Marler -scottjmarler@gmail.com  
-Rensley Ramos -  
-Anna Joltaya
+Scott Marler - scottjmarler@gmail.com  
+Rensley Ramos - ranly196@gmail.com  
+Anna Joltaya 
 
 ---
 
