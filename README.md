@@ -195,7 +195,7 @@ Test your complete `Cryvest` ledger and user interface by running your Streamlit
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
 Dane Hayes - nydane1@gmail.com  
 Scott Marler -scottjmarler@gmail.com  
-Rensley Ramos - ranly196@gmail.com
+Rensley Ramos - ranly196@gmail.com  
 Anna Joltaya
 
 ---
