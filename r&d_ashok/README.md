@@ -75,7 +75,7 @@ The Cryvesto project must meet the following criteria:
     - drawing sentiments from historical `Wall Street Journal` news Headlines 
     - obtained historical Ticker data from Yahoo Finance
     - invented  our own proprietary signal strategy called **Simple Moving Average of Sentiments** akin to generally known SMAs which utilize daily returns. In our **SMA of Sentiments** we utilize the sentiment values averaged over a short period of time (SMA-Short), and over a longer period of time (SMA-Long). We used SMA short and SMA Long as the Feature set for our ML models.  We tested the models with and without this strategy and very interestingly the results with the SMA strategy were much better. 
-    - tested on the follwoing models
+    - tested on the following models
        - Logistic Regression
        - SVC
        - AdaBoost
@@ -86,10 +86,13 @@ The Cryvesto project must meet the following criteria:
 
 ## Hypothesis Test Results
 
-The test showed promising results favoring `AdaBoost` model with about 60% accuracy in predicting buy/sell indicators when tested with social media sentiment feeds. See [twitter classification reports](twitter_classification_reports.pdf) and [reddit classification reports](reddit_classification_reports.pdf) here.
+The test showed promising results favoring `AdaBoost` model with about 60% accuracy in predicting buy/sell indicators when tested with social media sentiment feeds. See [twitter classification reports](twitter_classification_reports.pdf) and [reddit classification reports](reddit_classification_reports.pdf) here. 
 
-We got similar results with over 50% accuracy with the news headlines from The Wall Street Journal. [Click here for WSJ classification report](classification_reports_wsj.pdf). We believe that with fine tuning of SMA windows we might be able to get better results indicating that even the leading business news headlines have similar impact on trading. This is promising!
+The cumulative return plots appear very choppy unlike traditional cumulative return plots. We believe that is due to the very choppy data on Cryptos from the period selected.You can preview [cumulative returns plot with twitter feed](twitter_plots.pdf) and [cumulative returns plot with reddit feed](reddit_plots.pdf) here.  
 
+We got similar results with over 50% accuracy with the news headlines from The Wall Street Journal. [Click here for WSJ classification report](classification_reports_wsj.pdf). You can preview [cumulative returns plot with different SMA windows](wsj_plots.pdf) here. We believe that with fine tuning of SMA windows we might be able to get better results indicating that even the leading business news headlines have similar impact on trading. This is promising!
+
+We chose `Adaboost` as on an average it showed better predictability than other models despite some of them demonstarting better cumulative returns at times.
 
 ## Cryvesto 2.0 Trading App
 The App is built using **Streamlit**.
@@ -138,6 +141,7 @@ At this point you will have the the entire application files in the current dire
 * README.md
 * reddit_classification_reports.csv  
 * reddit_classification_reports.pdf
+* reddit_plots.pdf        (cumulative returns plots)
 * results with reddit data only
 * results with twitter data only
 * results wsj data only
@@ -146,8 +150,10 @@ At this point you will have the the entire application files in the current dire
 * twitter_classification_reports.csv
 * twitter_classification_reports.pdf
 * twitter_lib.py            (social media lib)
+* twitter_plots.pdf         (cumulative returns plots)
 * wsj_headlines.csv         (wsj headlines hitorical data)
 * wsj_lib.py                (wsj lib)
+* wsj_plots.pdf             (cumulative returns plots)
 * xactcryptos.py
     
 ---
