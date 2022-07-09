@@ -178,6 +178,14 @@ After step 7 above, this will take you to the jupyter lab window, where you can 
 
 ### Run the Cryvest 2.0 App
 
+Test your complete `Cryvest` ledger and user interface by running your Streamlit application.
+# Then test the interface.
+# To do so, complete the following steps:
+
+# 1. In the terminal, navigate to the project folder where you've coded the challenge.
+
+# 2. In the terminal, run the Streamlit application by
+# using 'streamlit run ???????????.py`.
 
 ---
 
@@ -187,7 +195,7 @@ After step 7 above, this will take you to the jupyter lab window, where you can 
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
 Dane Hayes - nydane1@gmail.com  
 Scott Marler -scottjmarler@gmail.com  
-Rensley Ramos -  
+Rensley Ramos - ranly196@gmail.com
 Anna Joltaya
 
 ---
