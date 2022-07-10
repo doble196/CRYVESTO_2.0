@@ -237,7 +237,7 @@ THIS ASSUMES FAMILIARITY WITH JUPYTER LAB. If not, then [click here for informat
 - After step 7 above, this will take you to the jupyter lab window, where you can open the application notebook **mainline_twitter.ipynb, or mainline_reddit.ipynb, or mainline_wsj.ipynb** and run the notebook to test the hypothesis with respective data source.  
 
 ### Setup Streamlit
-Before running the app, please make sure that Streamlit is installed on your system and the librfaries mentioned above are installed as well.
+Before running the app, please make sure that Streamlit is installed on your system and the libraries mentioned above are installed as well.
 
 ### Run the Cryvest 2.0 App
 
