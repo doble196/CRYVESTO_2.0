@@ -77,7 +77,9 @@ def trade_crypto(coin, amount, buy_sell):
 
 
 st.sidebar.header("Options")
-st.sidebar.write("[README](https://github.com/doble196/CRYVESTO_2.0/blob/ashok/r%26d_ashok/README.md)")
+#st.sidebar.write("[README](https://github.com/doble196/CRYVESTO_2.0/blob/ashok/r%26d_ashok/README.md)")
+st.sidebar.write("[README](https://github.com/doble196/CRYVESTO_2.0/blob/main/README.md)")
+
 st.title("Cryvesto 2.0 Trading App")
 
 
