@@ -252,7 +252,7 @@ Follow the prompts and buy/sell Ethereum and Bitcoin cryptos.
 --- 
 ## Contributors 
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
-Dane Hayes - nydane1@gmail.com, https://www.linkedin.com/in/dana-h-43951b134/  
+Dane Hayes - nydane1@gmail.com    
 Scott Marler - scottjmarler@gmail.com, https://www.linkedin.com/in/scott-marler-212040b6/  
 Rensley Ramos - ranly196@gmail.com, https://www.linkedin.com/in/rensley-2-nfty/  
 Anna Joltaya - annajolt11.04@gmail.com, https://www.linkedin.com/in/anna-joltaya-15a66387/  
