@@ -255,7 +255,7 @@ Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a720123
 Dane Hayes - nydane1@gmail.com  
 Scott Marler -scottjmarler@gmail.com  
 Rensley Ramos - ranly196@gmail.com  
-Anna Joltaya - 
+Anna Joltaya - annajolt11.04@gmail.com
 
 ---
 
