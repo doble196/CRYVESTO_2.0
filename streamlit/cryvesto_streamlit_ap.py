@@ -5,16 +5,19 @@ from turtle import onclick
 import streamlit as st
 import time
 import yfinance as yf
-#import AshokData
+from sklearn.ensemble import AdaBoostClassifier
+
 
 import pandas as pd
 import os
 #from dotenv import load_dotenv
 import alpaca_trade_api as tradeapi
+import plotly.graph_objects as go
 
 # our private library alpaca_trade_lib.py which does the trading using alpaca. 
 
 import alpaca_trade_lib as ta
+import augmento_senti_daily as asd
 
 def trade_crypto(coin, amount, buy_sell):
 # comment these after uncommenting loadenv 
@@ -25,19 +28,34 @@ def trade_crypto(coin, amount, buy_sell):
 # Uncomment the load_dotenv line and the key setting lines below 
 # after commenting the key lines above
 
-#    load_dotenv('my_api.env')
+#    load_dotenv('APIs-checkpoint.env')
 # Set the variables for the Alpaca API and secret keys
-#    alpaca_api_key = os.getenv('ALPACA_API_KEY')
-#    alpaca_secret_key = os.getenv('ALPACA_SECRET_KEY')
+    alpaca_api_key = os.getenv('ALPACA_API_KEY')
+    alpaca_secret_key = os.getenv('ALPACA_SECRET_KEY')
+    
 
 #get the alpaca tradeapi object
     api = ta.get_alpaca_tradeapi_object(alpaca_api_key, alpaca_secret_key)
+    
+# implement ADAboost classifier as trading model
 
+   
 # buy coin(s)
 
     if coin == 'BTC': crypto='BTCUSD'
     if coin == 'ETH': crypto='ETHUSD'
 
+# to implement trading bot
+    signal = 1
+    if signal == 1:
+        orderSide = "buy"
+    else:
+        orderSide = "sell"
+        
+    # Get final closing price
+    prices = api.get_bars(crypto, "24H").df
+    limit_amount
+   
     number_of_shares = amount
     buy_or_sell = buy_sell.lower()
     st.write('NUM OF SHARES '+ str(number_of_shares))
@@ -46,17 +64,18 @@ def trade_crypto(coin, amount, buy_sell):
     st.write("CRYPTO is "+ crypto)
 
 #do a trade
+
     try:
         order_result = ta.submit_crypto_order(api, crypto, buy_or_sell, number_of_shares)
     except Exception as exception:
-       st.write (exception)
+        st.write (exception)
  
   #if exception.__str__() == 'position does not exist':
    # pos_qty = 0
 
 #see what trade price we got
 #print (order_result.client_order_id)
-    price = ta.get_my_order_filled_price (api, order_result.client_order_id)
+    price = ta.get_my_order_filled_price(api, order_result.client_order_id)
  #  print (f"Purchase price for {number_of_shares} share(s) was USD {price} per share")
     
 # Weird but this is how we are returning the value of this function. Thru state variable..
@@ -78,7 +97,7 @@ email = st.text_input("Please enter your email to access the Cryvesto trading ap
 
 if email == "admin":
     if email == 'admin':
-      with st.form("trade_form", clear_on_submit=True):
+        with st.form("trade_form", clear_on_submit=True):
 
         btc = yf.Ticker("BTC-USD")
         st.cache(func=btc)
@@ -115,12 +134,13 @@ if email == "admin":
 
         st.write("Portfolio Total:", account_balance)
         
-        import plotly.graph_objects as go
         
+        # plot daily value
+        daily_sent = asd.daily_augmento_senti()
         fig = go.Figure(go.Indicator(
             domain = {'x': [0, 1], 'y': [0, 1]},
             mode = 'gauge+number',
-            value = .289,
+            value = daily_sent,
             gauge = {
                 'axis': {'range': [-1, 1], 
                 'tickcolor':'blueviolet'},
@@ -203,7 +223,7 @@ if email == "admin":
         submitted = st.form_submit_button("Submit")
         if submitted:
             trade_crypto (cryptos, amount, buy_sell)
-            order_filled_price = float(st.session_state.order_filled_price )
+            order_filled_price = float(st.session_state.order_filled_price)
             if cryptos == 'BTC' : btc_price = order_filled_price
             if cryptos == 'ETH' : eth_price = order_filled_price
             
