@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 # Project 2: Cryvesto 2.0- Machine Learning Sentiment Trade Bot
 --- 
 
-![P2ReadMeTitlePic](P2-ReadMeTitle_2022-07-01181545.png)
+![P2ReadMeTitlePic](M16P2_ML/Images/P2-ReadMeTitle_2022-07-01181545.png)
 
 
 *"Using a MachineLearning-Sentiment Trading Bot (ML-STB) that adopts trade signals from Social Media and News feeds about evolving markets ."* 
@@ -10,7 +10,7 @@
 
 ---
 ## Background
-#
+##
 For Project Two, team Cryvesto 2.0 has embarked on constructing a Machine Learning Sentiment Trade Bot(ML_STB) that captures market expressions from news and social media sources and identifies ‘Bullish’ or ‘Bearish’ sentiment. We believe that positive and negative sentiments are signals for new market trends. These signals can be utilized to trigger an entry or exit point to trade targeted securities or assets. We believe that our hypothesis highlights the importance of ‘fear’ and ‘greed’ that influences market forces, which could be some of the leading indicators for trade points. 
 
 A retail investor is innundated with business and political news, and world events that he/she struggles to keep track of how these might impact trading or investments. To minimize their personal 'fear' and 'greed'
@@ -104,20 +104,6 @@ We received similar results with over 50% accuracy 'The Wall Street Journal' new
 We chose `Adaboost` because its averages showed better predictability than the other models despite some of them demonstrating better cumulative returns at times. 
 
 ---
-
-## Cryvesto 2.0 Trading App
-The Cryvesto 2.0 app prompts the user for an email id for validation purposes (currently, hardcoded to 'admin'). Please enter `admin` when prompted. The App displays the user's current account information and is presented with a Crypto **Sentiment of the Day** displaying a gauge with values between -1 and 1. It then prompts the user for the coin to buy/sell and the respective amounts. Then executes the trade using Alpaca.
-
-The Graphic User Interface for the Cryvesto 2.0 trading app is built using **Streamlit**. The App uses Alpaca API to trade cryptos on their paper accounts. Currently, the app is hardcoded to use my API keys. The code is there to extract it from api.env file, which is commented out for now. In production version, it will be reinstated.
-
-At present the CSD is calculated from the Augmento Bull/Bear sentiment counts picked from a day in June as the free API doesn't provide current data. In future, we will change the code to pick the current data. 
-
-In the next release, the App will use the Adabooster model to make a prediction to buy/sell and advise the trader accordingly.
-
-![StreamlitTradeApp](P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
-
-#### **The Cryvesto 2.0 Sentiment Meter Gauge** 
-
 ---
 
 ## Technologies
@@ -145,14 +131,6 @@ python -m pip show scikit-learn                           # to see which version
 pip install --user -U nltk                                # library for Natural Language ToolKit
 conda install numpy                                       # python library for scientific computing.
 pip install streamlit                                     # python library to create custom web apps for ML.
-pip install plotly
-pip install matplotlib
-pip install imblearn
-pip install pandas_datareader
-pip install hvplot
-pip install alpaca_trade_api
-pip install requests
-
 ```
 ```import pandas as pd
 import numpy as np                                         # returns conditional classification values for signals
@@ -180,15 +158,13 @@ open the Terminal window and clone as follows:
    3. %ls     
         CRYVESTO_2.0    
         
-   4. %cd CRYVESTO_2.0/final    
+   4. %cd CRYVESTO_2.0    
 
 The entire application files in the current directory are as follows:
 
 * alpaca_trade_lib.py       (Alpaca trade lib)
-* augmento_senti_daily.py.   (Augmento sentiments lib)
 * classification_reports_wsj.pdf
 * classification_reports.csv
-* CryvestoTradeApp.py       (Cryvesto Trading App)
 * load_data.py              (load api library)
 * mainline_reddit.ipynb     (reddit feed notebook)
 * mainline_twitter.ipynb    (twitter feed notebook)
@@ -196,7 +172,6 @@ The entire application files in the current directory are as follows:
 * ml_lib.py                 (ml library)
 * my_api.env          
 * newslib.py                (newsapi lib)
-* P2-Cryvesto2.0_ML_STB_ap.pptx  (powerpoint presentation)
 * Pipfile
 * README.md
 * reddit_classification_reports.csv  
@@ -227,7 +202,7 @@ Setup the environment using conda as follows:
 
     5. %conda create dev -python=3.7 anaconda  
     
-    6. %conda activate dev  (if running the Cryvesto app go to the section on `Setup Streamlit` below')
+    6. %conda activate dev  
     
     7. %jupyter lab  
 
@@ -236,26 +211,53 @@ THIS ASSUMES FAMILIARITY WITH JUPYTER LAB. If not, then [click here for informat
 
 - After step 7 above, this will take you to the jupyter lab window, where you can open the application notebook **mainline_twitter.ipynb, or mainline_reddit.ipynb, or mainline_wsj.ipynb** and run the notebook to test the hypothesis with respective data source.  
 
-### Setup Streamlit
-Before running the app, please make sure that Streamlit is installed on your system and the libraries mentioned above are installed as well.
-
 ### Run the Cryvest 2.0 App
 
-After step 6 of setting up the environment, follow these instructions:
-    
-     7. pipenv install streamlit
-     8. streamlit run CryvestoTradeApp.py
-     
-Follow the prompts and buy/sell Ethereum and Bitcoin cryptos. 
+Test your complete `Cryvesto` ledger and user interface by running your Streamlit application.
+ Then test the interface.
+To do so, complete the following steps:
+
+ 1. In the terminal, navigate to the project folder where you've coded the challenge.
+
+ 2. In the terminal, run the Streamlit application by using 'streamlit run ???????????.py`. 
+
+The Cryvesto 2.0 GUI app prompts the user for an email id for validation purposes (currently, hardcoded to 'admin'). Please enter admin when prompted. The App displays the user's current account information and is presented with a Crypto Sentiment of the Day(CSD) displaying a gauge with values between -1 and 1. It then prompts the user for coin selection and to buy/sell with the amount. Then it executes the trade using Alpaca.
+
+---
+---
+## Cryvesto 2.0 Trading App
+##
+The Graphic User Interface for the Cryvesto 2.0 trading app is built using Streamlit. This development app uses Alpaca API to trade cryptocurrency on a paper account. The code extracts it from api.env file, which is commented out for now. It will be reinstated in the production version.
+
+Presently, the CSD is calculated from the 'Augmento' Bull/Bear sentiment counts picked from a day in June to provide current data. For future development, we will change the code to pick the current date. 
+
+Joined dataframe of Bullish & Bearish texts with datetime and signals: 
+
+![joined_df1](M16P2_ML/Images/P2-Joined_df1_2022-07-10143958.png) 
+
+![joined_df2](M16P2_ML/Images/P2-Joined_df2_2022-07-10144017.png) 
+
+
+The Cryptocurrency Sentiment of the Day signal: 
+
+![SentimentofDaySignl](M16P2_ML/Images/P2-SntmntofDySig_2022-07-10144040.png) 
+
+The Graphic User Interface for the Cryvesto 2.0 trading app is built using **Streamlit**.
+
+![StreamlitTradeApp](M16P2_ML/Images/P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
+
+#### **The Cryvesto 2.0 Sentiment Meter Gauge** 
+
+In the next release, the App will use the Adabooster model to make a prediction to buy/sell and advise the trader accordingly.
 
 ---
 --- 
 ## Contributors 
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
-Dane Hayes - nydane1@gmail.com    
-Scott Marler - scottjmarler@gmail.com, https://www.linkedin.com/in/scott-marler-212040b6/  
-Rensley Ramos - ranly196@gmail.com, https://www.linkedin.com/in/rensley-2-nfty/  
-Anna Joltaya - annajolt11.04@gmail.com, https://www.linkedin.com/in/anna-joltaya-15a66387/  
+Dane Hayes - nydane1@gmail.com  
+Scott Marler -scottjmarler@gmail.com  
+Rensley Ramos - ranly196@gmail.com  
+Anna Joltaya - 
 
 ---
 
