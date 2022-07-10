@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Project 2: Cryvesto 2.0- Machine Learning Sentiment Trade Bot
 --- 
 
@@ -244,3 +245,7 @@ The source code is the property of the developer. The users can copy and use the
 
 ---
 
+=======
+# CRYVESTO_2.0
+Algorithmic Trading Application
+>>>>>>> 93a1ee90315e331389179de12c0ee55b557f9f39
