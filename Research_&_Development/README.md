@@ -1,23 +1,33 @@
-# Project 2 - Cryvesto 2.0 - A Machine Learning to Trade Cryptos Utilizing Social Media Sentiments
-Build a Crypto stock trading App that learns to trade keeping in mind the sentiments derived out of Social Media and News feed.
+<<<<<<< HEAD
+# Project 2: Cryvesto 2.0- Machine Learning Sentiment Trade Bot
+--- 
+
+![P2ReadMeTitlePic](P2-ReadMeTitle_2022-07-01181545.png)
+
+
+*"Using a MachineLearning-Sentiment Trading Bot (ML-STB) that adopts trade signals from Social Media and News feeds about evolving markets ."* 
+
 
 ---
-## Hypothesis
-Social Media and News sentiments are a significant factor in trading securities, especially Cryptocurrencies.
+## Background
+#
+For Project Two, team Cryvesto 2.0 has embarked on constructing a Machine Learning Sentiment Trade Bot(ML_STB) that captures market expressions from news and social media sources and identifies ‘Bullish’ or ‘Bearish’ sentiment. We believe that positive and negative sentiments are signals for new market trends. These signals can be utilized to trigger an entry or exit point to trade targeted securities or assets. We believe that our hypothesis highlights the importance of ‘fear’ and ‘greed’ that influences market forces, which could be some of the leading indicators for trade points. 
 
-___
+A retail investor is innundated with business and political news, and world events that he/she struggles to keep track of how these might impact trading or investments. To minimize their personal 'fear' and 'greed'
+impulse to trade, we identify the public market sentiment for them to be ahead of changing market force momentum and validate that the phrase: "The trend is your friend." 
 
-## User Story
-A retail investor is so innundated with world news, business news, political events that he is unable to keep track of how these might impact trading or investments. 
+Also, with the growth of high frequency trading(HFT) rising to 80% of market trading today, it gives cause to seek an additional approach from automated ML algorithm modeling based on technical indicator inputs. By encoding sentiments as ‘Bullish’ or ‘Bearish’ we aim to get an early advantage to place trades before the HFT herd using technical indicator trade signals. 
 
-Team Cryvesto has embarked upon building a Machine Learning(ML) Sentiment Trade Bot(STB) that utilizes market sentiment from news and social media sources that responds to ‘Bullish’ or ‘Bearish’ signals. These signals trigger an entry or exit point to trade targeted securities or assets.  We believe that our hypothesis highlights the importance of ‘fear’ and ‘greed’ that influences market forces, which could be some of the leading indicators for trade points.
+Team Cryvesto will utilize sentiments from social media and news data sites (like **twitter, reddit, The Wall Street Journal, and NewsAPI**), along with historical trading data to build a STB utilizing ML techniques that can predict whether to buy/sell or hold a Cryptocurrency.
 
-Team Cryvesto will utilize sentiments from news data (from sources like **twitter, reddit, The Wall Street Journal, and NewsAPI**) and historical trading data to build a STB utilizing ML techniques that can predict whether to buy/sell/hold a Cryptocurrency.  
+--- 
+## Hypothesis 
 
-First, the hypothesis that these sentiments are significant factors as trade signals will be established after testing the hypothesis against several ML models, followed by building a STB using the selected ML model.
+Our hypothesis is when 'Bullish' sentiment is higher than 'Bearish' sentiment the asset price will likely rise, and when 'Bearish' sentiment is higher than 'Bullish' sentiment the opposite will occur with a declining prices.  
+
+First, the hypothesis that these sentiments are significant factors as trade signals will be established after backtesting the hypothesis against several ML models, followed by building a STB using the selected ML model.
 
 ---
-
 ## Acceptance Criteria  
 
 The Cryvesto project must meet the following criteria:
@@ -32,23 +42,22 @@ The Cryvesto project must meet the following criteria:
     - SVC
     - AdaBoost
     - Random Forest   
-* Determine the ML model that performs the best with over atleast 50% accuracy and recall rates for prediciting the buy/sell signals  
-* Using the selected model, build the Cryvesto 2.0 app utilizing **Streamlit** that:
-    - displays the sentiment of the day in a Speedometer like format
-    - Prompts the user to select from Bitcoin/ Ethereum for trading
-    - Perform a paper trade using Alpaca Trade API   
+* Determine the best performing ML model that has greater than 50% accuracy and recall rates for prediciting the buy/sell signals  
+* Using the selected model, build the Cryvesto 2.0 app utilizing **Streamlit** as the GUI that:
+    - displays the sentiment of the day in a gauge meter format
+    - prompts the user to select from Bitcoin/ Ethereum for trading
+    - perform a paper trade using Alpaca Trade API   
 
 ---
+## Evaluation Results
 
-## Testing the Hypothesis
-
-### Testing using crypto related sentiments from leading social media sites
+### Tests using crypto related sentiments from leading social media sites
 * Developed the `mainline_twitter` Jupyter Notebook  
-    - drawing sentiments from twitter feed related to
+    - drawing sentiments from twitter feeds related to:
         - Bitcoin
         - Ethereum
     - obtained historical Ticker data from Yahoo Finance
-    - tested on the follwoing models
+    - tested in the following models:
        - Logistic Regression
        - SVC
        - AdaBoost
@@ -57,11 +66,11 @@ The Cryvesto project must meet the following criteria:
     - saved `Actual Vs Strategy Returns` plots in respective PNG files for comparison purposes  
 
 * Developed the `mainline_reddit` Jupyter Notebook  
-    - drawing sentiments from reddit feed related to
+    - drawing sentiments from reddit feed related to:
         - Bitcoin
         - Ethereum
     - obtained historical Ticker data from Yahoo Finance
-    - tested on the follwoing models
+    - tested on the follwoing models:
        - Logistic Regression
        - SVC
        - AdaBoost
@@ -69,49 +78,97 @@ The Cryvesto project must meet the following criteria:
     - accumulated `Classification reports` in a results DataFrame and subsequently in a `csv` file for comparison purposes
     - saved `Actual Vs Strategy Returns` plots in respective PNG files for comparison purposes  
                 
-
-### Testing using headlines from the leading business newspaper- Wall Street Journal
+### Tests using headlines from the leading business newspaper- Wall Street Journal
 * Developed the `mainline_wsj` Jupyter Notebook  
     - drawing sentiments from historical `Wall Street Journal` news Headlines 
     - obtained historical Ticker data from Yahoo Finance
-    - invented  our own proprietary signal strategy called **Simple Moving Average of Sentiments** akin to generally known SMAs which utilize daily returns. In our **SMA of Sentiments** we utilize the sentiment values averaged over a short period of time (SMA-Short), and over a longer period of time (SMA-Long). We used SMA short and SMA Long as the Feature set for our ML models.  We tested the models with and without this strategy and very interestingly the results with the SMA strategy were much better. 
-    - tested on the following models
+    - invented  our own proprietary signal strategy called **Simple Moving Average of Sentiments** akin to generally known SMAs, technical indicators which utilize price-derived returns. In our **SMA of Sentiments**, we utilize the sentiment values averaged over a short period of time (SMA-Short), and over a longer period of time (SMA-Long). We used `SMA Short` and `SMA Long` as the features for our ML models.  We tested the models with and without this strategy and very interestingly the results with the 'SMA of Sentiments' strategy was much better. 
+    - tested on the following models:
        - Logistic Regression
        - SVC
        - AdaBoost
        - Random Forest
     - accumulated `Classification reports` in a results DataFrame and subsequently in a `csv` file for comparison purposes
     - saved `Actual Vs Strategy Returns` plots in respective PNG files for comparison purposes
-    - tested with current top 20 headlines extracted from NewsAPI API
+    - tested with current top 20 headlines extracted from NewsAPI. 
+---
 
 ## Hypothesis Test Results
 
-The test showed promising results favoring `AdaBoost` model with about 60% accuracy in predicting buy/sell indicators when tested with social media sentiment feeds. See [twitter classification reports](twitter_classification_reports.pdf) and [reddit classification reports](reddit_classification_reports.pdf) here. 
+The tests results are promising favoring `AdaBoost` model with about 60% accuracy in predicting buy/sell indicators when tested with social media sentiment feeds. See [twitter classification reports](twitter_classification_reports.pdf) and [reddit classification reports](reddit_classification_reports.pdf) here. 
 
-The cumulative return plots appear very choppy unlike traditional cumulative return plots. We believe that is due to the very choppy data on Cryptos from the period selected.You can preview [cumulative returns plot with twitter feed](twitter_plots.pdf) and [cumulative returns plot with reddit feed](reddit_plots.pdf) here.  
+The cumulative return plots appear very choppy unlike traditional cumulative return plots. We believe that is due to the very choppy data on Cryptos from the period selected. You can preview [cumulative returns plot with twitter feed](twitter_plots.pdf) and [cumulative returns plot with reddit feed](reddit_plots.pdf) here.  
 
-We got similar results with over 50% accuracy with the news headlines from The Wall Street Journal. [Click here for WSJ classification report](classification_reports_wsj.pdf). You can preview [cumulative returns plot with different SMA windows](wsj_plots.pdf) here. We believe that with fine tuning of SMA windows we might be able to get better results indicating that even the leading business news headlines have similar impact on trading. This is promising!
+We received similar results with over 50% accuracy 'The Wall Street Journal' news headlines. [Click here for WSJ classification report](classification_reports_wsj.pdf). The preview for [WSJ cumulative returns plot with different SMA windows](wsj_plots.pdf) are here. We believe that fine tuning of the SMA windows might give better results indicating that even the leading business news headlines may have similar impact on trading. This looks promising!
 
-We chose `Adaboost` as on an average it showed better predictability than other models despite some of them demonstarting better cumulative returns at times.
+We chose `Adaboost` because its averages showed better predictability than the other models despite some of them demonstrating better cumulative returns at times. 
+
+---
 
 ## Cryvesto 2.0 Trading App
-The App is built using **Streamlit**.
+The Cryvesto 2.0 app prompts the user for an email id for validation purposes (currently, hardcoded to 'admin'). Please enter `admin` when prompted. The App displays the user's current account information and is presented with a Crypto **Sentiment of the Day** displaying a gauge with values between -1 and 1. It then prompts the user for the coin to buy/sell and the respective amounts. Then executes the trade using Alpaca.
 
+The Graphic User Interface for the Cryvesto 2.0 trading app is built using **Streamlit**. The App uses Alpaca API to trade cryptos on their paper accounts. Currently, the app is hardcoded to use my API keys. The code is there to extract it from api.env file, which is commented out for now. In production version, it will be reinstated.
 
+At present the CSD is calculated from the Augmento Bull/Bear sentiment counts picked from a day in June as the free API doesn't provide current data. In future, we will change the code to pick the current data. 
+
+In the next release, the App will use the Adabooster model to make a prediction to buy/sell and advise the trader accordingly.
+
+![StreamlitTradeApp](P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
+
+#### **The Cryvesto 2.0 Sentiment Meter Gauge** 
 
 ---
 
 ## Technologies
 The application is developed using:  
-* Language: Python 3.7,   
-* Packages/Libraries: Pandas; Streamlit, ClusterCentroids, StandardScaler, LogisticRegression, AdaBoostClassifier, RandomForestClassifier 
+* Language: Python 3.7   
+* Libraries: Pandas; scikit-learn; NLTK and Streamlit
+* The application tools needed to construct models to perform ML algorithms:`SVC`, `LogisticRegression`, `AdaBoostClassifier`, `DecisionTreeClassifier`.  
 * Development Environment: VS Code and Terminal, Anaconda 2.1.1 with conda 4.11.0, Jupyterlab 3.2.9
 * OS: Mac OS 12.1
 
 ---
 ## Installation Guide
-Following are the instructions to install the application from its Github respository.  
+Before running the applications open your terminal to install the libraries and verify them. The following are instructions to install the libraries for the applications.  
 
+* [python](https://www.python.org/downloads/) 
+* [anaconda3](https://docs.anaconda.com/anaconda/install/windows/e) 
+* [pandas](https://pandas.pydata.org/docs/getting_started/install.html)
+* [scikitlearn](https://scikit-learn.org/stable/install.html) 
+* [NLTK](https://www.nltk.org/install.html)
+* [streamlit](https://docs.streamlit.io/library/get-started/installation)
+
+```python libraries
+pip install -U scikit-learn
+python -m pip show scikit-learn                           # to see which version of scikit-learn is installed
+pip install --user -U nltk                                # library for Natural Language ToolKit
+conda install numpy                                       # python library for scientific computing.
+pip install streamlit                                     # python library to create custom web apps for ML.
+pip install plotly
+pip install matplotlib
+pip install imblearn
+pip install pandas_datareader
+pip install hvplot
+pip install alpaca_trade_api
+pip install requests
+
+```
+```import pandas as pd
+import numpy as np                                         # returns conditional classification values for signals
+from pathlib import Path
+import hvplot.pandas                                        # for chart visualations
+import matplotlib.pyplot as plt
+from sklearn import svm                                     # algorithm ML model
+from sklearn.preprocessing import StandardScaler            # standardizes data for models 
+from pandas.tseries.offsets import DateOffset               # allows length of time adjustments
+from sklearn.metrics import classification_report           # renders metrics as classified reports
+from sklearn.linear_model import LogisticRegression         # algorithm ML model
+from sklearn.ensemble import AdaBoostClassifier             # algorithm ML model
+from sklearn.tree import DecisionTreeClassifier             # algorithm ML model 
+from nltk.sentiment.vader import SentimentIntensityAnalyzer # algorithms classifying lists of words as scores into positive and negative categories, created by Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. 
+import streamlit as st                                      # deploys python code into an interactive web app
+```
 ### Clone the application code from Github as follows:
 copy the URL link of the application from its Github repository      
 open the Terminal window and clone as follows:  
@@ -123,13 +180,15 @@ open the Terminal window and clone as follows:
    3. %ls     
         CRYVESTO_2.0    
         
-   4. %cd CRYVESTO_2.0    
+   4. %cd CRYVESTO_2.0/final    
 
-At this point you will have the the entire application files in the current directory as follows:
+The entire application files in the current directory are as follows:
 
 * alpaca_trade_lib.py       (Alpaca trade lib)
+* augmento_senti_daily.py.   (Augmento sentiments lib)
 * classification_reports_wsj.pdf
 * classification_reports.csv
+* CryvestoTradeApp.py       (Cryvesto Trading App)
 * load_data.py              (load api library)
 * mainline_reddit.ipynb     (reddit feed notebook)
 * mainline_twitter.ipynb    (twitter feed notebook)
@@ -137,6 +196,7 @@ At this point you will have the the entire application files in the current dire
 * ml_lib.py                 (ml library)
 * my_api.env          
 * newslib.py                (newsapi lib)
+* P2-Cryvesto2.0_ML_STB_ap.pptx  (powerpoint presentation)
 * Pipfile
 * README.md
 * reddit_classification_reports.csv  
@@ -159,7 +219,7 @@ At this point you will have the the entire application files in the current dire
 ---
 
 ## Usage
-The following details the instructions on how to run the application.  
+The following details the instructions on how to run the applications.  
 
 ### Setup the environment and Run the application 
 
@@ -167,28 +227,35 @@ Setup the environment using conda as follows:
 
     5. %conda create dev -python=3.7 anaconda  
     
-    6. %conda activate dev  
+    6. %conda activate dev  (if running the Cryvesto app go to the section on `Setup Streamlit` below')
     
     7. %jupyter lab  
 
 ### Run the Notebooks
 THIS ASSUMES FAMILIARITY WITH JUPYTER LAB. If not, then [click here for information on Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable/).  
 
-After step 7 above, this will take you to the jupyter lab window, where you can open the application notebook **mainline_twitter.ipynb, or mainline_reddit.ipynb, or mainline_wsj.ipynb** and run the notebook to test the hypothesis with respective data source.  
+- After step 7 above, this will take you to the jupyter lab window, where you can open the application notebook **mainline_twitter.ipynb, or mainline_reddit.ipynb, or mainline_wsj.ipynb** and run the notebook to test the hypothesis with respective data source.  
+
+### Setup Streamlit
+Before running the app, please make sure that Streamlit is installed on your system and the libraries mentioned above are installed as well.
 
 ### Run the Cryvest 2.0 App
 
+After step 6 of setting up the environment, follow these instructions:
+    
+     7. pipenv install streamlit
+     8. streamlit run CryvestoTradeApp.py
+     
+Follow the prompts and buy/sell Ethereum and Bitcoin cryptos. 
 
 ---
-
----
-
-## Contributors
+--- 
+## Contributors 
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
 Dane Hayes - nydane1@gmail.com  
 Scott Marler -scottjmarler@gmail.com  
-Rensley Ramos -  
-Anna Joltaya
+Rensley Ramos - ranly196@gmail.com  
+Anna Joltaya - annajolt11.04@gmail.com
 
 ---
 
@@ -197,3 +264,7 @@ The source code is the property of the developer. The users can copy and use the
 
 ---
 
+=======
+# CRYVESTO_2.0
+Algorithmic Trading Application
+>>>>>>> 93a1ee90315e331389179de12c0ee55b557f9f39

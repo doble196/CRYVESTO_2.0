@@ -2,7 +2,7 @@
 # Project 2: Cryvesto 2.0- Machine Learning Sentiment Trade Bot
 --- 
 
-![P2ReadMeTitlePic](M16P2_ML/Images/P2-ReadMeTitle_2022-07-01181545.png)
+![P2ReadMeTitlePic](P2-ReadMeTitle_2022-07-01181545.png)
 
 
 *"Using a MachineLearning-Sentiment Trading Bot (ML-STB) that adopts trade signals from Social Media and News feeds about evolving markets ."* 
@@ -106,9 +106,15 @@ We chose `Adaboost` because its averages showed better predictability than the o
 ---
 
 ## Cryvesto 2.0 Trading App
-The Graphic User Interface for the Cryvesto 2.0 trading app is built using **Streamlit**.
+The Cryvesto 2.0 app prompts the user for an email id for validation purposes (currently, hardcoded to 'admin'). Please enter `admin` when prompted. The App displays the user's current account information and is presented with a Crypto **Sentiment of the Day** displaying a gauge with values between -1 and 1. It then prompts the user for the coin to buy/sell and the respective amounts. Then executes the trade using Alpaca.
 
-![StreamlitTradeApp](M16P2_ML/Images/P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
+The Graphic User Interface for the Cryvesto 2.0 trading app is built using **Streamlit**. The App uses Alpaca API to trade cryptos on their paper accounts. Currently, the app is hardcoded to use my API keys. The code is there to extract it from api.env file, which is commented out for now. In production version, it will be reinstated.
+
+At present the CSD is calculated from the Augmento Bull/Bear sentiment counts picked from a day in June as the free API doesn't provide current data. In future, we will change the code to pick the current data. 
+
+In the next release, the App will use the Adabooster model to make a prediction to buy/sell and advise the trader accordingly.
+
+![StreamlitTradeApp](P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
 
 #### **The Cryvesto 2.0 Sentiment Meter Gauge** 
 
@@ -139,6 +145,14 @@ python -m pip show scikit-learn                           # to see which version
 pip install --user -U nltk                                # library for Natural Language ToolKit
 conda install numpy                                       # python library for scientific computing.
 pip install streamlit                                     # python library to create custom web apps for ML.
+pip install plotly
+pip install matplotlib
+pip install imblearn
+pip install pandas_datareader
+pip install hvplot
+pip install alpaca_trade_api
+pip install requests
+
 ```
 ```import pandas as pd
 import numpy as np                                         # returns conditional classification values for signals
@@ -166,13 +180,15 @@ open the Terminal window and clone as follows:
    3. %ls     
         CRYVESTO_2.0    
         
-   4. %cd CRYVESTO_2.0    
+   4. %cd CRYVESTO_2.0/final    
 
 The entire application files in the current directory are as follows:
 
 * alpaca_trade_lib.py       (Alpaca trade lib)
+* augmento_senti_daily.py.   (Augmento sentiments lib)
 * classification_reports_wsj.pdf
 * classification_reports.csv
+* CryvestoTradeApp.py       (Cryvesto Trading App)
 * load_data.py              (load api library)
 * mainline_reddit.ipynb     (reddit feed notebook)
 * mainline_twitter.ipynb    (twitter feed notebook)
@@ -180,6 +196,7 @@ The entire application files in the current directory are as follows:
 * ml_lib.py                 (ml library)
 * my_api.env          
 * newslib.py                (newsapi lib)
+* P2-Cryvesto2.0_ML_STB_ap.pptx  (powerpoint presentation)
 * Pipfile
 * README.md
 * reddit_classification_reports.csv  
@@ -210,7 +227,7 @@ Setup the environment using conda as follows:
 
     5. %conda create dev -python=3.7 anaconda  
     
-    6. %conda activate dev  
+    6. %conda activate dev  (if running the Cryvesto app go to the section on `Setup Streamlit` below')
     
     7. %jupyter lab  
 
@@ -219,24 +236,26 @@ THIS ASSUMES FAMILIARITY WITH JUPYTER LAB. If not, then [click here for informat
 
 - After step 7 above, this will take you to the jupyter lab window, where you can open the application notebook **mainline_twitter.ipynb, or mainline_reddit.ipynb, or mainline_wsj.ipynb** and run the notebook to test the hypothesis with respective data source.  
 
+### Setup Streamlit
+Before running the app, please make sure that Streamlit is installed on your system and the libraries mentioned above are installed as well.
+
 ### Run the Cryvest 2.0 App
 
-Test your complete `Cryvesto` ledger and user interface by running your Streamlit application.
- Then test the interface.
-To do so, complete the following steps:
-
- 1. In the terminal, navigate to the project folder where you've coded the challenge.
-
- 2. In the terminal, run the Streamlit application by using 'streamlit run ???????????.py`.
+After step 6 of setting up the environment, follow these instructions:
+    
+     7. pipenv install streamlit
+     8. streamlit run CryvestoTradeApp.py
+     
+Follow the prompts and buy/sell Ethereum and Bitcoin cryptos. 
 
 ---
 --- 
 ## Contributors 
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
-Dane Hayes - nydane1@gmail.com  
-Scott Marler -scottjmarler@gmail.com  
-Rensley Ramos - ranly196@gmail.com  
-Anna Joltaya - 
+Dane Hayes - nydane1@gmail.com    
+Scott Marler - scottjmarler@gmail.com, https://www.linkedin.com/in/scott-marler-212040b6/  
+Rensley Ramos - ranly196@gmail.com, https://www.linkedin.com/in/rensley-2-nfty/  
+Anna Joltaya - annajolt11.04@gmail.com, https://www.linkedin.com/in/anna-joltaya-15a66387/  
 
 ---
 
