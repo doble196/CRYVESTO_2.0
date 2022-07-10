@@ -5,7 +5,6 @@ from turtle import onclick
 import streamlit as st
 import time
 import yfinance as yf
-from sklearn.ensemble import AdaBoostClassifier
 
 
 import pandas as pd
@@ -30,8 +29,8 @@ def trade_crypto(coin, amount, buy_sell):
 
 #    load_dotenv('APIs-checkpoint.env')
 # Set the variables for the Alpaca API and secret keys
-    alpaca_api_key = os.getenv('ALPACA_API_KEY')
-    alpaca_secret_key = os.getenv('ALPACA_SECRET_KEY')
+#    alpaca_api_key = os.getenv('ALPACA_API_KEY')
+#    alpaca_secret_key = os.getenv('ALPACA_SECRET_KEY')
     
 
 #get the alpaca tradeapi object
@@ -45,16 +44,6 @@ def trade_crypto(coin, amount, buy_sell):
     if coin == 'BTC': crypto='BTCUSD'
     if coin == 'ETH': crypto='ETHUSD'
 
-# to implement trading bot
-    signal = 1
-    if signal == 1:
-        orderSide = "buy"
-    else:
-        orderSide = "sell"
-        
-    # Get final closing price
-    prices = api.get_bars(crypto, "24H").df
-    limit_amount
    
     number_of_shares = amount
     buy_or_sell = buy_sell.lower()
@@ -81,7 +70,7 @@ def trade_crypto(coin, amount, buy_sell):
 # Weird but this is how we are returning the value of this function. Thru state variable..
     st.session_state.order_filled_price = price  
 
-    return
+    return st.session_state.order_filled_price
 
 
 
@@ -96,11 +85,12 @@ email = st.text_input("Please enter your email to access the Cryvesto trading ap
 
 
 if email == "admin":
-    if email == 'admin':
-        with st.form("trade_form", clear_on_submit=True):
-
+    with st.form("trade_form", clear_on_submit=True):
+            
+            
         btc = yf.Ticker("BTC-USD")
         st.cache(func=btc)
+        btc_close = 
         eth = yf.Ticker("ETH-USD")
         st.cache(func=eth)
         btc_price = btc.info["regularMarketPrice"]
@@ -167,9 +157,9 @@ if email == "admin":
         
        
 
-        buy_sell = st.radio('Please make a selection for todays trading.',('Buy','Sell'))              
+        buy_sell = st.radio('Please make a selection for todays trading.',('Buy','Sell', 'Trade Bot'))              
         st.write("How much",cryptos," do you want to trade ?")
-        amount = st.number_input("Amount",.0)
+        amount = st.number_input("Amount (in coins)",.0)
         st.write('NUM OF SHARES INPUT '+ str(amount))
 
         # Check if you have sufficient AMOUNT REQUIRED if WANT TO BUY
@@ -215,6 +205,27 @@ if email == "admin":
 
                     cash_available = cash_available + total
                     st.session_state.cash_available = cash_available
+                    
+            if buy_sell == "Trade_Bot":  #added trade bot functionality option 
+                number_of_coins = 1
+                if signal == 1:
+                    orderSide = "buy"
+                else:
+                    orderSide = "sell"
+                
+                if cryptos == "BTC":
+                    api.submit_order(symbol="BTC", qty=number_of_coins,
+                                     side=orderSide, 
+                                     time_in_force="gtc",
+                                     type="limit",
+                                     limit_price=btc_price )
+                else:
+                    api.submit_order(symbocl="ETH", qty=number_of_shares,
+                                     side=orderSide,
+                                     time_in_fore="gtc",
+                                     type="limit",
+                                     limit_price=eth_price )
+                    
         
             st.write("Your trade in the amount of",total, "has been processed.")                        
             st.session_state.btc_holdings = btc_holdings
@@ -224,21 +235,24 @@ if email == "admin":
         if submitted:
             trade_crypto (cryptos, amount, buy_sell)
             order_filled_price = float(st.session_state.order_filled_price)
-            if cryptos == 'BTC' : btc_price = order_filled_price
-            if cryptos == 'ETH' : eth_price = order_filled_price
             
-            eth_holdings_value = eth_holdings * eth_price
-            btc_holdings_value = btc_holdings * btc_price
-            account_balance = btc_holdings_value + eth_holdings_value + cash_available
+        if cryptos == 'BTC' : 
+            order_filled_price =  btc_price
+        if cryptos == 'ETH' : 
+            order_filled_price = eth_price 
+            
+        eth_holdings_value = eth_holdings * eth_price
+        btc_holdings_value = btc_holdings * btc_price
+        account_balance = btc_holdings_value + eth_holdings_value + cash_available
 
-            st.write("AFTER THE TRADE:")
+        st.write("AFTER THE TRADE:")
 
-            st.write(f"ETH Holdings: {eth_holdings}  Value: USD {eth_holdings_value:,.2f}") 
-            st.write(f"BTC Holdings: {btc_holdings}  Value: USD {btc_holdings_value:,.2f}") 
-            st.write("Cash available for trading:", cash_available)
+        st.write(f"ETH Holdings: {eth_holdings}  Value: USD {eth_holdings_value:,.2f}") 
+        st.write(f"BTC Holdings: {btc_holdings}  Value: USD {btc_holdings_value:,.2f}") 
+        st.write("Cash available for trading:", cash_available)
 
 
-            st.write("Portfolio Total:", account_balance)
+        st.write("Portfolio Total:", account_balance)
 
     
 else: 
