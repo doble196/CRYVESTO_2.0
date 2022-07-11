@@ -231,18 +231,18 @@ The Graphic User Interface for the Cryvesto 2.0 trading app is built using Strea
 
 Presently, the CSD is calculated from the 'Augmento' Bull/Bear sentiment counts picked from a day in June to provide current data. For future development, we will change the code to pick the current date. 
 
-Joined dataframe of Bullish & Bearish texts with datetime and signals: 
+### *Joined dataframe of Bullish & Bearish texts with datetime and signals:* 
 
 ![joined_df1](Images/P2-Joined_df1_2022-07-10143958.png) 
 
 ![joined_df2](Images/P2-Joined_df2_2022-07-10144017.png) 
 
 
-The Cryptocurrency Sentiment of the Day signal: 
+### *The Cryptocurrency Sentiment of the Day signal:* 
 
 ![SentimentofDaySignl](Images/P2-SntmntofDySig_2022-07-10144040.png) 
 
-The Graphic User Interface for the Cryvesto 2.0 trading app is built using **Streamlit**.
+### *The Graphic User Interface for the Cryvesto 2.0 trading app is built using* **Streamlit**.
 
 ![StreamlitTradeApp](Images/P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
 
