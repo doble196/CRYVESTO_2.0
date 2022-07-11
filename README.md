@@ -2,7 +2,7 @@
 # Project 2: Cryvesto 2.0- Machine Learning Sentiment Trade Bot
 --- 
 
-![P2ReadMeTitlePic](M16P2_ML/Images/P2-ReadMeTitle_2022-07-01181545.png)
+![P2ReadMeTitlePic](Images/P2-ReadMeTitle_2022-07-01181545.png)
 
 
 *"Using a MachineLearning-Sentiment Trading Bot (ML-STB) that adopts trade signals from Social Media and News feeds about evolving markets ."* 
@@ -233,18 +233,18 @@ Presently, the CSD is calculated from the 'Augmento' Bull/Bear sentiment counts 
 
 Joined dataframe of Bullish & Bearish texts with datetime and signals: 
 
-![joined_df1](M16P2_ML/Images/P2-Joined_df1_2022-07-10143958.png) 
+![joined_df1](Images/P2-Joined_df1_2022-07-10143958.png) 
 
-![joined_df2](M16P2_ML/Images/P2-Joined_df2_2022-07-10144017.png) 
+![joined_df2](Images/P2-Joined_df2_2022-07-10144017.png) 
 
 
 The Cryptocurrency Sentiment of the Day signal: 
 
-![SentimentofDaySignl](M16P2_ML/Images/P2-SntmntofDySig_2022-07-10144040.png) 
+![SentimentofDaySignl](Images/P2-SntmntofDySig_2022-07-10144040.png) 
 
 The Graphic User Interface for the Cryvesto 2.0 trading app is built using **Streamlit**.
 
-![StreamlitTradeApp](M16P2_ML/Images/P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
+![StreamlitTradeApp](Images/P2-ReadMeStreamlitTrdApp_2022-07-07171518.png) 
 
 #### **The Cryvesto 2.0 Sentiment Meter Gauge** 
 
@@ -255,9 +255,9 @@ In the next release, the App will use the Adabooster model to make a prediction 
 ## Contributors 
 Ashok Pandey - ashok.pragati@gmail.com, www.linkedin.com/in/ashok-pandey-a7201237  
 Dane Hayes - nydane1@gmail.com  
-Scott Marler -scottjmarler@gmail.com  
-Rensley Ramos - ranly196@gmail.com  
-Anna Joltaya - 
+Scott Marler -scottjmarler@gmail.com, https://www.linkedin.com/in/scott-marler-212040b6/  
+Rensley Ramos - ranly196@gmail.com, https://www.linkedin.com/in/rensley-2-nfty/    
+Anna Joltaya - annajolt11.04@gmail.com, https://www.linkedin.com/in/anna-joltaya-15a66387/
 
 ---
 
