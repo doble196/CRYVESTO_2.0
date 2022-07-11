@@ -95,11 +95,11 @@ The Cryvesto project must meet the following criteria:
 
 ## Hypothesis Test Results
 
-The tests results are promising favoring `AdaBoost` model with about 60% accuracy in predicting buy/sell indicators when tested with social media sentiment feeds. See [twitter classification reports](twitter_classification_reports.pdf) and [reddit classification reports](reddit_classification_reports.pdf) here. 
+The tests results are promising favoring `AdaBoost` model with about 60% accuracy in predicting buy/sell indicators when tested with social media sentiment feeds. See [twitter classification reports](pdf_files.pdf/twitter_classification_reports.pdf) and [reddit classification reports](pdf_files.pdf/reddit_classification_reports.pdf) here. 
 
-The cumulative return plots appear very choppy unlike traditional cumulative return plots. We believe that is due to the very choppy data on Cryptos from the period selected. You can preview [cumulative returns plot with twitter feed](twitter_plots.pdf) and [cumulative returns plot with reddit feed](reddit_plots.pdf) here.  
+The cumulative return plots appear very choppy unlike traditional cumulative return plots. We believe that is due to the very choppy data on Cryptos from the period selected. You can preview [cumulative returns plot with twitter feed](pdf_files.pdf/twitter_plots.pdf) and [cumulative returns plot with reddit feed](pdf_files.pdf/reddit_plots.pdf) here.  
 
-We received similar results with over 50% accuracy 'The Wall Street Journal' news headlines. [Click here for WSJ classification report](classification_reports_wsj.pdf). The preview for [WSJ cumulative returns plot with different SMA windows](wsj_plots.pdf) are here. We believe that fine tuning of the SMA windows might give better results indicating that even the leading business news headlines may have similar impact on trading. This looks promising!
+We received similar results with over 50% accuracy 'The Wall Street Journal' news headlines. [Click here for WSJ classification report](pdf_files.pdf/classification_reports_wsj.pdf). The preview for [WSJ cumulative returns plot with different SMA windows](pdf_files.pdf/wsj_plots.pdf) are here. We believe that fine tuning of the SMA windows might give better results indicating that even the leading business news headlines may have similar impact on trading. This looks promising!
 
 We chose `Adaboost` because its averages showed better predictability than the other models despite some of them demonstrating better cumulative returns at times. 
 
