@@ -2,7 +2,7 @@
 # Project 2: Cryvesto 2.0- Machine Learning Sentiment Trade Bot
 --- 
 
-![P2ReadMeTitlePic](Images/P2-ReadMeTitle_2022-07-01181545.png)
+![PReadMeTitlePic](Images/P2-ReadMeTitle_2022-07-01181545.png)
 
 
 *"Using a MachineLearning-Sentiment Trading Bot (ML-STB) that adopts trade signals from Social Media and News feeds about evolving markets ."* 
